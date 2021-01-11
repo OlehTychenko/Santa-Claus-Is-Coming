@@ -499,11 +499,11 @@
   margin: 20px auto;
 }
 
-.footer > .col-3 > .logo__pic {
+.logo__pic {
   width: 100%;
 }
 
-.footer > .col-3 > .logo__pic > img {
+.logo__pic > img {
   width: 100%;
   max-width: 300px;
 }

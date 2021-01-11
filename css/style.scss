@@ -465,13 +465,14 @@ $base_color_white: rgb(236, 236, 236);
     margin-left: 0px !important;
     >.col-3 {
         margin: 20px auto;
-        >.logo__pic {
-            width: 100%;
-            >img {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
+    }
+}
+
+.logo__pic {
+    width: 100%;
+    >img {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
@@ -559,4 +560,4 @@ $base_color_white: rgb(236, 236, 236);
     }
 }
 
-//      Snow info styles end}}
+//      Snow info styles end
