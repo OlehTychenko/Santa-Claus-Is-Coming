@@ -58,7 +58,7 @@ const searchUser = () => {
                 const showLikes = document.createElement('div');
                 showLikes.textContent = 'count: 0';
                 handleClick = () => {
-                  showLikes.textContent = Math.round((Math.random() * 10));
+                    showLikes.textContent = Math.round((Math.random() * 10));
                 };
                 likesBut.addEventListener('click', handleClick);
                 const butGameOfTrones = document.createElement('button');
@@ -86,7 +86,72 @@ const searchUser = () => {
 but.addEventListener('click', searchUser);
 
 
+//      add buttons     //
 
+
+let cards = document.querySelectorAll(".assortment__goods-card")
+
+let func = () => {
+    return new Promise((resolve, reject) => {
+
+        for (let i = 0; i < cards.length; i++) {
+            // create and style
+            let cardCount = document.createElement('p');
+            cardCount.id = i + 1;
+            cardCount.style.display = 'inline-block';
+            cardCount.style.marginTop = '10px';
+            let count = document.createElement('div');
+            count.style.display = 'inline-block';
+            // define id and append into html
+            count.textContent = 0;
+            count.id = `count${i + 1}`;
+            cardCount.textContent = `Element ${i + 1}:`;
+            cards[i].append(cardCount);
+            cards[i].append(count);
+        }
+        resolve();
+    }
+    ).then(() => {
+        for (let i = 0; i < cards.length; i++) {
+            // create and style
+            let cardBut = document.createElement('button');
+            cardBut.textContent = `-`;
+            cardBut.classList = ('btn btn-dark');
+            cardBut.style.marginLeft = "10px"
+            cardBut.style.marginRight = "10px"
+            // func
+            let countr = document.getElementById(`count${i + 1}`);
+            let dicreaseCount = () => {
+                if (+countr.textContent === 0) return;
+                countr.textContent = parseInt(countr.textContent, 10) - 1;
+            }
+            cardBut.addEventListener('click', dicreaseCount)
+            cards[i].append(cardBut);
+        }
+    }).then(() => {
+        for (let i = 0; i < cards.length; i++) {
+            let cardBut = document.createElement('button');
+            cardBut.textContent = `+`;
+            cardBut.classList = ('btn btn-dark');
+            let countr = document.getElementById(`count${i + 1}`);
+            let increaseCount = () => {
+                countr.textContent = +countr.textContent + 1;
+            }
+            cardBut.addEventListener('click', increaseCount)
+            cards[i].append(cardBut);
+        }
+    })
+};
+
+func();
+
+
+
+
+
+
+
+//      add buttons end     //
 
 
 //  why does it work?
